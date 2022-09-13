@@ -1,21 +1,40 @@
-// define array for choices [r, p, s]
-// define var for computerChoice
-// define var for humanChoice
-// define var for wins
-// define var for losses
-// define var for ties
+var choices = ["r", "p", "s"]
+var wins = 0
+var losses = 0
+var ties = 0
+var keepPlaying = true
 
-// prompt humanChoice
+while(keepPlaying) {
+  // prompt humanChoice
+  var humanChoice = prompt("Choose r, p, s")
+  console.log('human choice:', humanChoice)
 
-// randomly choose computerChoice
+  // randomly choose computerChoice
+  var random = Math.floor(Math.random() * choices.length)
+  var computerChoice = choices[random]
+  console.log('computer choice:', computerChoice)
 
-// compare choices
+  var result
+  if (humanChoice === computerChoice) {
+    ties++
+    result = "tied!"
+  } else if (
+    humanChoice === "r" && computerChoice === "s" ||
+    humanChoice === "p" && computerChoice === "r" ||
+    humanChoice === "s" && computerChoice === "p"
+  ) {
+    wins++
+    result = "won!"
+  } else {
+    losses++
+    result = "lost!"
+  }
 
-// display (alert) comparison results (won, tied, lost round)
+  // display (alert) comparison results (won, tied, lost round)
+  alert("You " + result)
 
-// show stats (number of wins, losses, ties)
+  // show stats
+  alert("Stats:\nWins: " + wins + "\nLosses: " + losses + "\nTies: " + ties)
 
-// play again?
-  // restart game
-// else
-  // end game
+  keepPlaying = confirm("Want to play again?")
+}
