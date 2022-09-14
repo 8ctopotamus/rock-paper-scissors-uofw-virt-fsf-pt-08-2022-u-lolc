@@ -1,4 +1,4 @@
-var choices = ["r", "p", "s"]
+var choices = ["r", "p", "s", "a"]
 var wins = 0
 var losses = 0
 var ties = 0
@@ -8,6 +8,12 @@ while(keepPlaying) {
   // prompt humanChoice
   var humanChoice = prompt("Choose r, p, s")
   console.log('human choice:', humanChoice)
+
+  // check if the humanChoice is valid
+  if (!choices.includes(humanChoice)) {
+    alert("Bad input!")
+    continue;
+  }
 
   // randomly choose computerChoice
   var random = Math.floor(Math.random() * choices.length)
