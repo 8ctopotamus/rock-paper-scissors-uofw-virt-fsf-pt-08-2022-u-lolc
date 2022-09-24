@@ -57,6 +57,7 @@ h1 {
 .choice {
   cursor: pointer;
   transition: transform 260ms ease-out;
+  background: red;
 }
 
 .choice:hover {
