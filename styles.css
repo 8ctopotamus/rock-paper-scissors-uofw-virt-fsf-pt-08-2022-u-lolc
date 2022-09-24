@@ -57,9 +57,13 @@ h1 {
 .choice {
   cursor: pointer;
   transition: transform 260ms ease-out;
-  background: red;
+  text-align: center;
 }
 
 .choice:hover {
   transform: scale(1.2);
+}
+
+.choice img {
+  display: block;
 }
