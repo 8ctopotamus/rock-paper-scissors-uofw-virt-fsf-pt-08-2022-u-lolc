@@ -10,6 +10,19 @@ var choices = ["r", "p", "s"]
 var humanScore = 0
 var botScore = 0
 
+function resetUI() {
+  resultEl.innerText = "Rock Paper Scissors"
+  // show all three choices
+  choicesElements.forEach(function(el) {
+    el.style.display = 'block'
+    el.classList.remove('loser')
+    var spans = el.querySelectorAll('span')
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].remove()
+    }
+  })
+}
+
 function updateScores() {
   humanScoreEl.innerText = humanScore
   botScoreEl.innerText = botScore
@@ -18,7 +31,7 @@ function updateScores() {
 function showResults(humanChosenEl, computerChosenEl, result) {
   resultEl.innerText = result
   updateScores()
-  // hide all three
+  // hide all three choice
   choicesElements.forEach(function(el) {
     el.style.display = 'none'
   })
@@ -33,11 +46,15 @@ function showResults(humanChosenEl, computerChosenEl, result) {
   botSpan.innerText = "Bot"
   computerChosenEl.appendChild(botSpan)
 
-  //   // display (alert) comparison results (won, tied, lost round)
-  //   alert("You " + result)
+  if (result === 'YOU WON!') {
+    computerChosenEl.classList.add('loser')
+  } else if (result === 'BOT WON!') {
+    humanChosenEl.classList.add('loser')
+  }
 
-  //   // show stats
-  //   alert("Stats:\nWins: " + wins + "\nLosses: " + losses + "\nTies: " + ties)
+  setTimeout(function() {
+    resetUI()
+  }, 3000)
 }
 
 function startRound(event) {
