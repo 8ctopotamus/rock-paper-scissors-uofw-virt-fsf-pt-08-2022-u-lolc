@@ -19,8 +19,11 @@
   margin: 0;
 }
 body {
+  color: var(--lavenderWeb);
   background-color: var(--prussianBlue);
   padding: 5px;
+  font-size: 32px;
+  font-family: 'Rubik Dirt', cursive;
 }
 h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, ul, ol, dl {
   margin: 20px 0;
@@ -31,4 +34,22 @@ li, dd, blockquote {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+
+h1 {
+  font-size: 52px;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  margin: 120px auto 0;
+  max-width: 1280px;
 }
