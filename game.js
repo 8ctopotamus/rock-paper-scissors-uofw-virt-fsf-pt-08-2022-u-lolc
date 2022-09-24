@@ -8,49 +8,35 @@ var choices = ["r", "p", "s"]
 var humanScore = 0
 var botScore = 0
 
-// while(keepPlaying) {
-//   // prompt humanChoice
-//   var humanChoice = prompt("Choose r, p, s")
-//   console.log('human choice:', humanChoice)
+function startRound(event) {
+  var humanChoice = event.target.dataset.letter
+  
+  // randomly choose computerChoice
+  var random = Math.floor(Math.random() * choices.length)
+  var computerChoice = choices[random]
+  
+  var result
+  if (humanChoice === computerChoice) {
+    result = "TIED!"
+  } else if (
+    humanChoice === "r" && computerChoice === "s" ||
+    humanChoice === "p" && computerChoice === "r" ||
+    humanChoice === "s" && computerChoice === "p"
+  ) {
+    humanScore++
+    result = "YOU WON!"
+  } else {
+    botScore++
+    result = "BOT WON!"
+  }
 
-//   // check if the humanChoice is valid
-//   if (!choices.includes(humanChoice)) {
-//     alert("Bad input!")
-//     continue;
-//   }
-
-//   // randomly choose computerChoice
-//   var random = Math.floor(Math.random() * choices.length)
-//   var computerChoice = choices[random]
-//   console.log('computer choice:', computerChoice)
-
-//   var result
-//   if (humanChoice === computerChoice) {
-//     ties++
-//     result = "tied!"
-//   } else if (
-//     humanChoice === "r" && computerChoice === "s" ||
-//     humanChoice === "p" && computerChoice === "r" ||
-//     humanChoice === "s" && computerChoice === "p"
-//   ) {
-//     wins++
-//     result = "won!"
-//   } else {
-//     losses++
-//     result = "lost!"
-//   }
+  console.log(result, humanScore, botScore)
 
 //   // display (alert) comparison results (won, tied, lost round)
 //   alert("You " + result)
 
 //   // show stats
 //   alert("Stats:\nWins: " + wins + "\nLosses: " + losses + "\nTies: " + ties)
-
-//   keepPlaying = confirm("Want to play again?")
-// }
-
-function startRound() {
-  console.log('Starting round....')
 }
 
 rockImg.addEventListener('click', startRound)
