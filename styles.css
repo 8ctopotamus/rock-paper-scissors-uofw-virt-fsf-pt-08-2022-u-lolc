@@ -53,3 +53,12 @@ h1 {
   margin: 120px auto 0;
   max-width: 1280px;
 }
+
+.choice {
+  cursor: pointer;
+  transition: transform 260ms ease-out;
+}
+
+.choice:hover {
+  transform: scale(1.2);
+}
