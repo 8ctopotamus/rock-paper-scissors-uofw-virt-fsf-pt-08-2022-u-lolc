@@ -9,8 +9,10 @@ var choicesElements = [rockEl, paperEl, scissorsEl]
 var choices = ["r", "p", "s"]
 var humanScore = 0
 var botScore = 0
+var clickable = true 
 
 function resetUI() {
+  clickable = true
   resultEl.innerText = "Rock Paper Scissors"
   // show all three choices
   choicesElements.forEach(function(el) {
@@ -29,6 +31,7 @@ function updateScores() {
 }
 
 function showResults(humanChosenEl, computerChosenEl, result) {
+  clickable = false
   resultEl.innerText = result
   updateScores()
   // hide all three choice
@@ -58,6 +61,8 @@ function showResults(humanChosenEl, computerChosenEl, result) {
 }
 
 function startRound(event) {
+  if (!clickable) return
+
   var humanChosenEl
   // make sure we're referring to the correct element
   if (event.target.matches('img')) {
