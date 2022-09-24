@@ -4,17 +4,21 @@ var rockImg = document.getElementById('rock')
 var paperImg = document.getElementById('paper')
 var scissorsImg = document.getElementById('scissors')
 
+var imageElements = [rockImg, paperImg, scissorsImg]
+
 var choices = ["r", "p", "s"]
 var humanScore = 0
 var botScore = 0
 
 function startRound(event) {
-  var humanChoice = event.target.dataset.letter
+  var humanChosenImg = event.target
+  var humanChoice = humanChosenImg.dataset.letter
   
   // randomly choose computerChoice
   var random = Math.floor(Math.random() * choices.length)
   var computerChoice = choices[random]
-  
+  var computerChosenImg = document.querySelector('img[data-letter="'+ computerChoice +'"]')
+
   var result
   if (humanChoice === computerChoice) {
     result = "TIED!"
@@ -30,7 +34,12 @@ function startRound(event) {
     result = "BOT WON!"
   }
 
-  console.log(result, humanScore, botScore)
+  // hide all three images
+  imageElements.forEach(function(img) {
+    img.style.display = 'none'
+  })
+  humanChosenImg.style.display = "block"
+  computerChosenImg.style.display = "block"
 
 //   // display (alert) comparison results (won, tied, lost round)
 //   alert("You " + result)
