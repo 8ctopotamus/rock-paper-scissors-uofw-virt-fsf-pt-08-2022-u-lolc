@@ -1,9 +1,4 @@
-var humanScoreEl = document.getElementById('human-score')
-var botScoreEl = document.getElementById('bot-score')
-var rockEl = document.getElementById('rock')
-var paperEl = document.getElementById('paper')
-var scissorsEl = document.getElementById('scissors')
-var resultEl = document.getElementById('result')
+import { rockEl, paperEl, scissorsEl, resultEl, humanScoreEl, botScoreEl } from './elements.js'
 
 var choicesElements = [rockEl, paperEl, scissorsEl]
 var choices = ["r", "p", "s"]
