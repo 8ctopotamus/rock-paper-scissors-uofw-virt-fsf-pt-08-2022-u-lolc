@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -9,14 +10,20 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-  plugins: [new MiniCssExtractPlugin({
-    filename: 'styles.min.css'
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Rock Paper Scissors',
+      template: './index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.min.css'
+    })
+  ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [ MiniCssExtractPlugin.loader,  'css-loader']
       }
     ],
   },
@@ -24,5 +31,9 @@ module.exports = {
     minimizer: [
       new CssMinimizerWebpackPlugin()
     ]
-  }
+  },
+  devServer: {
+    static: __dirname,
+    hot: true,
+  },
 }
