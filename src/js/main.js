@@ -3,6 +3,14 @@ import '../css/styles.css'
 import { rockEl, paperEl, scissorsEl, resultEl, humanScoreEl, botScoreEl } from './elements.js'
 import { getRandomIdx } from './helpers'
 
+import RockImg from '../images/rock.png'
+import PaperImg from '../images/paper.png'
+import ScissorsImg from '../images/scissors.png'
+
+rockEl.querySelector('img').src = RockImg
+paperEl.querySelector('img').src = PaperImg
+scissorsEl.querySelector('img').src = ScissorsImg
+
 var choicesElements = [rockEl, paperEl, scissorsEl]
 var choices = ["r", "p", "s"]
 var humanScore = 0
@@ -97,3 +105,14 @@ function startRound(event) {
 rockEl.addEventListener('click', startRound)
 paperEl.addEventListener('click', startRound)
 scissorsEl.addEventListener('click', startRound)
+
+window.addEventListener('load', () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(() => {
+      console.log('Service worker registered!');
+    }).catch((error) => {
+      console.warn('Error registering service worker:');
+      console.warn(error);
+    });
+  }
+});
