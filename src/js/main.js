@@ -97,12 +97,3 @@ function startRound(event) {
 rockEl.addEventListener('click', startRound)
 paperEl.addEventListener('click', startRound)
 scissorsEl.addEventListener('click', startRound)
-
-
-if (module.hot) {
-  module.hot.accept(err => {
-    if (err) {
-      console.log('HRM Error', err)
-    }
-  })
-}

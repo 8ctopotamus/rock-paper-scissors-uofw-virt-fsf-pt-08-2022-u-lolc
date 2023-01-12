@@ -114,8 +114,5 @@ function startRound(event) {
 rockEl.addEventListener('click', startRound)
 paperEl.addEventListener('click', startRound)
 scissorsEl.addEventListener('click', startRound)
-
-
-if (false) {}
 /******/ })()
 ;

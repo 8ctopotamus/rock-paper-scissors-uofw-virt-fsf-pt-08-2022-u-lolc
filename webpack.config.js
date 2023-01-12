@@ -13,7 +13,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Rock Paper Scissors',
-      template: './index.html'
+      template: './src/index.html'
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.min.css'
