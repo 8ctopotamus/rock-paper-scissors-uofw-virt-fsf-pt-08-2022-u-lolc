@@ -2,6 +2,7 @@ import '../css/styles.css'
 
 import { rockEl, paperEl, scissorsEl, resultEl, humanScoreEl, botScoreEl } from './elements.js'
 import { getRandomIdx } from './helpers'
+import { registerSW } from './register-sw'
 
 var choicesElements = [rockEl, paperEl, scissorsEl]
 var choices = ["r", "p", "s"]
@@ -97,3 +98,5 @@ function startRound(event) {
 rockEl.addEventListener('click', startRound)
 paperEl.addEventListener('click', startRound)
 scissorsEl.addEventListener('click', startRound)
+
+registerSW()
