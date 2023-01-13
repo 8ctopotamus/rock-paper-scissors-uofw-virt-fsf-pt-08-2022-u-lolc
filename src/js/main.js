@@ -4,6 +4,16 @@ import { rockEl, paperEl, scissorsEl, resultEl, humanScoreEl, botScoreEl } from 
 import { getRandomIdx } from './helpers'
 import { registerSW } from './register-sw'
 
+// import images
+import RockImage from '../images/rock.png'
+import PaperImage from '../images/paper.png'
+import ScissorsImage from '../images/scissors.png'
+
+// set img src attributes
+rockEl.querySelector('img').src = RockImage
+scissorsEl.querySelector('img').src = ScissorsImage
+paperEl.querySelector('img').src = PaperImage
+
 var choicesElements = [rockEl, paperEl, scissorsEl]
 var choices = ["r", "p", "s"]
 var humanScore = 0
